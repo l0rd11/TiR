@@ -18,6 +18,7 @@ public class Tester {
 
     public void run() throws Exception {
         Socket socket = server.accept();
+        System.out.println("Accepted a connection.");
         BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
         while (true) {
             String received = in.readLine();
