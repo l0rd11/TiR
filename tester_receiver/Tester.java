@@ -23,6 +23,7 @@ public class Tester {
         while (true) {
             String received = in.readLine();
             System.out.println("Received: " + received);
+            System.out.println("" + (int)(received.charAt(received.length()-1)) + "\t" + (int)(received.charAt(received.length()-2)) + "\t" + (int)(received.charAt(received.length()-3)));
         }
     }
 }
