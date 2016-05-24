@@ -1,0 +1,40 @@
+#:kivy 1.0.9
+
+<HeightSlider>:
+    canvas:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+<VelocitySlider>:
+    canvas:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+<AngleSlider>:
+    canvas:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+
+<HoovercraftDriver>:
+    hslider: h_id
+    vslider: v_id
+    aslider: a_id
+
+    HeightSlider:
+        id: h_id
+        pos: 5, 5
+        size: root.width / 5 - 10, 5
+
+    VelocitySlider:
+        id: v_id
+        pos: root.width / 5 + 5, 5
+        size: root.width / 5 - 10, 5
+
+    AngleSlider:
+        id: a_id
+        pos: root.width * 7 / 10 - 3, 5
+        size: 6, root.height - 10

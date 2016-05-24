@@ -8,7 +8,7 @@ hval = 0
 vval = 0
 aval = 90
 
-TCP_IP = '192.168.4.1'
+TCP_IP = '192.168.0.11'
 TCP_PORT = 80
 BASE = "serwo="
 
