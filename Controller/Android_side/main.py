@@ -30,10 +30,23 @@ class HoovercraftDriver(Widget):
     aslider = ObjectProperty(None)
 
     def update(self, dt):
-        global hval, vval, aval
-        lhval = hval + 35.0
-        lvval = vval + 35.0
-        s.sendall(BASE + chr(int(lhval)) + chr(int(lvval)) + chr(int(aval)) + "\n")
+        # global hval, vval, aval
+        # lhval = hval + 35.0
+        # lvval = vval + 35.0
+        # s.sendall(BASE + chr(int(lhval)) + chr(int(lvval)) + chr(int(aval)) + "\n")
+        try:
+            #TODO scale properly
+            acc0 = int((10 + accelerometer.acceleration[0])*6.4)
+            acc1 = int(35 + (10 + accelerometer.acceleration[1])*4.65)
+            acc2 = int(35 + (10 + accelerometer.acceleration[2])*4.65)
+        except Exception:
+            #s.sendall("Exception on parse         \n")
+            pass
+        try:
+            s.sendall(BASE + chr(acc0) + chr(acc1) + chr(acc2) + "\n")
+        except Exception:
+            #s.sendall("Exception on send          \n")
+            pass
 
 
     def on_touch_move(self, touch):
@@ -68,6 +81,7 @@ class AngleSlider(Widget):
 class HoovercraftApp(App):
     def build(self):
         app = HoovercraftDriver()
+        accelerometer.enable()
         Clock.schedule_interval(app.update, 1.0 / 10.0)
         return app
 
